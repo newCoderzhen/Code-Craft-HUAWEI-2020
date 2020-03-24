@@ -1,3 +1,6 @@
+/*
+Score: 58.1407  80% PASSED
+*/
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -185,6 +188,7 @@ double LR::gradientSlope(const vector<Data> &dataSet, int index, int j, const ve
     return gsV;
 }
 
+
 void LR::train()
 {
     double sigmoidVal;
@@ -215,6 +219,7 @@ void LR::train()
     }
 }
 
+
 void LR::predict()
 {
     double sigVal;
@@ -229,6 +234,7 @@ void LR::predict()
 
     storePredict(predictVec);
 }
+
 
 int LR::loadModel()
 {
@@ -258,6 +264,7 @@ int LR::loadModel()
     fin.close();
     return 0;
 }
+
 
 int LR::storeModel()
 {
@@ -319,6 +326,7 @@ bool LR::loadTestData()
     return true;
 }
 
+
 bool loadAnswerData(string awFile, vector<int> &awVec)
 {
     ifstream infile(awFile.c_str());
@@ -342,6 +350,7 @@ bool loadAnswerData(string awFile, vector<int> &awVec)
     return true;
 }
 
+
 int LR::storePredict(vector<int> &predict)
 {
     string line;
@@ -357,6 +366,7 @@ int LR::storePredict(vector<int> &predict)
     fout.close();
     return 0;
 }
+
 
 int main(int argc, char *argv[])
 {
