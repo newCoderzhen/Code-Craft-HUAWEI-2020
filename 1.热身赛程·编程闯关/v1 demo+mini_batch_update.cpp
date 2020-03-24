@@ -23,7 +23,6 @@ struct Param {
     vector<double> wtSet;
 };
 
-
 class LR {
 public:
     void train();
@@ -151,14 +150,12 @@ double LR::wxbCalc(const Data &data)
     return mulSum;
 }
 
-
 inline double LR::sigmoidCalc(const double wxb)
 {
     double expv = exp(-1 * wxb);
     double expvInv = 1 / (1 + expv);
     return expvInv;
 }
-
 
 double LR::lossCal(vector<double>& sigmoidVec)
 {
@@ -173,7 +170,6 @@ double LR::lossCal(vector<double>& sigmoidVec)
     return lossV;
 }
 
-
 double LR::gradientSlope(const vector<Data> &dataSet, int index, int j, const vector<double> &sigmoidVec)
 {
     double gsV = 0.0L;
@@ -187,7 +183,6 @@ double LR::gradientSlope(const vector<Data> &dataSet, int index, int j, const ve
     gsV = gsV / batch_size;
     return gsV;
 }
-
 
 void LR::train()
 {
@@ -219,7 +214,6 @@ void LR::train()
     }
 }
 
-
 void LR::predict()
 {
     double sigVal;
@@ -234,7 +228,6 @@ void LR::predict()
 
     storePredict(predictVec);
 }
-
 
 int LR::loadModel()
 {
@@ -265,7 +258,6 @@ int LR::loadModel()
     return 0;
 }
 
-
 int LR::storeModel()
 {
     string line;
@@ -284,7 +276,6 @@ int LR::storeModel()
     fout.close();
     return 0;
 }
-
 
 bool LR::loadTestData()
 {
@@ -326,7 +317,6 @@ bool LR::loadTestData()
     return true;
 }
 
-
 bool loadAnswerData(string awFile, vector<int> &awVec)
 {
     ifstream infile(awFile.c_str());
@@ -350,7 +340,6 @@ bool loadAnswerData(string awFile, vector<int> &awVec)
     return true;
 }
 
-
 int LR::storePredict(vector<int> &predict)
 {
     string line;
@@ -366,7 +355,6 @@ int LR::storePredict(vector<int> &predict)
     fout.close();
     return 0;
 }
-
 
 int main(int argc, char *argv[])
 {
